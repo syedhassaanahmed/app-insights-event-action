@@ -1,5 +1,9 @@
 name: "App Insights Event"
+author: "Syed Hassaan Ahmed"
 description: "Send event to Azure Application Insights"
+branding:
+  icon: "monitor"
+  color: "blue"
 inputs:
   instrumentation-key:
     description: "Azure Application Insights Instrumentation Key"
@@ -16,7 +20,7 @@ runs:
         {
           "name": "EventData",
           "time": "$(date --utc +%FT%T.%3NZ)",
-          "iKey": "${{ inputs.app-insights-key }}",
+          "iKey": "${{ inputs.instrumentation-key }}",
           "data": {
             "baseType": "EventData",
             "baseData": {
