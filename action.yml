@@ -1,0 +1,35 @@
+name: "App Insights Event"
+description: "Send event to Azure Application Insights"
+inputs:
+  instrumentation-key:
+    description: "Azure Application Insights Instrumentation Key"
+    required: true
+    default: "no_instrumentation_key"
+  event-name:
+    description: "Name of the customEvent"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        curl https://dc.services.visualstudio.com/v2/track -d @- <<BODY
+        {
+          "name": "EventData",
+          "time": "$(date --utc +%FT%T.%3NZ)",
+          "iKey": "${{ inputs.app-insights-key }}",
+          "data": {
+            "baseType": "EventData",
+            "baseData": {
+              "name": "${{ inputs.event-name }}",
+              "properties": {
+                "workflow": ${{ github.workflow }},
+                "run_number": ${{ github.run_number }},
+                "actor": ${{ github.actor }},
+                "repository": ${{ github.repository }},
+                "event_name": ${{ github.event_name }}
+              }
+            }
+          }
+        }
+        BODY
+      shell: bash
