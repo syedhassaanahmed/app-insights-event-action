@@ -26,11 +26,11 @@ runs:
             "baseData": {
               "name": "${{ inputs.event-name }}",
               "properties": {
-                "workflow": ${{ github.workflow }},
-                "run_number": ${{ github.run_number }},
-                "actor": ${{ github.actor }},
-                "repository": ${{ github.repository }},
-                "event_name": ${{ github.event_name }}
+                "workflow": "${{ github.workflow }}",
+                "run_number": "${{ github.run_number }}",
+                "actor": "${{ github.actor }}",
+                "repository": "${{ github.repository }}",
+                "event_name": "${{ github.event_name }}"
               }
             }
           }
