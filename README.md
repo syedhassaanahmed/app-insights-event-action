@@ -1,5 +1,5 @@
 # app-insights-event-action
-This is a very basic [composite run steps GitHub Action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-run-steps-action) that allows you to send events to Azure Application Insights. Each event will be sent with some [default GitHub environment variables](https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables). Full example usage of this action can be seen in [this repository](https://github.com/syedhassaanahmed/test-app-insights-event-action).
+Sometimes a DevOps engineer wants to see changes to the deployment infrastructure on the observability dashboard, so that the changes can be correlated with resource usages or increases in errors. This [composite run steps GitHub Action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-run-steps-action) is a rudimentary attempt to solve that challenge by allowing you to send events to Azure Application Insights. Each event will be sent with some [default GitHub environment variables](https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables). Full example usage of this action can be seen in [this repository](https://github.com/syedhassaanahmed/test-app-insights-event-action).
 
 ## Usage
 ```yaml
